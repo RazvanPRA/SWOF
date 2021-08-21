@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const ADD = () => {
+const EngineerScreen = () => {
   return (
     <View>
       <Text></Text>
@@ -9,6 +9,6 @@ const ADD = () => {
   );
 };
 
-export default ADD;
+export default EngineerScreen;
 
 const styles = StyleSheet.create({});

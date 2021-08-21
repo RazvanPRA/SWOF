@@ -5,27 +5,23 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import Calendar from './Calendar';
 import AllEngineersScreen from './AllEngineersScreen';
+import {COLORS} from '../Const/COLORS';
 
 const Tab = createMaterialBottomTabNavigator();
 const AppTabs = () => {
   return (
-    <Tab.Navigator
-    //   tabBarOptions={{
-    //     labelStyle: {fontSize: 18},
-    //     tabStyle: {color: COLORS.primaryColor},
-    //     style: {backgroundColor: COLORS.colorBackground},
-    //     labelStyle: {color: COLORS.primaryColor},
-    //     tabStyle: {height: 94},
-
-    //   }}
-    >
+    <Tab.Navigator>
       <Tab.Screen
         name="Calendar"
         component={Calendar}
         options={{
           title: 'Calendar',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons
+              name="home"
+              color={COLORS.TextYellow}
+              size={26}
+            />
           ),
         }}
       />

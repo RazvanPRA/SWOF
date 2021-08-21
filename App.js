@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import AppTabs from './SRC/Screens/AppTabs';
+import EngineerScreen from './SRC/Screens/EngineerScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const App: () => React$Node = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen name="EngineerScreen" component={EngineerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,7 +4,6 @@ import {COLORS} from '../Const/COLORS';
 
 const EngineerProfile = ({route}) => {
   const {data} = route.params;
-  console.log({data});
   return (
     <ScrollView
       style={styles.content}

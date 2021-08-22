@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {COLORS} from '../Const/COLORS';
 import {Engineers} from '../Const/Engineers';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SpinScreen = ({route}) => {
-  const {data, setData} = route.params;
-  function shuffle(array) {
+  const [calendar, setCalendar] = useState([]);
+  console.log({calendar});
+  const shufflArray = (array) => {
     var currentIndex = array.length,
       randomIndex;
 
@@ -20,17 +22,61 @@ const SpinScreen = ({route}) => {
     }
 
     return array;
-  }
-
-  const createWeek = () => {
-    setData([...data]);
   };
+  const generateCalendar = async () => {
+    let shuffledEngineers = shufflArray(Engineers);
+
+    let week = {
+      id: 100,
+      week: calendar.length + 1,
+      days: [
+        {day: 'Monday', shifts: []},
+        {day: 'Tuesday', shifts: []},
+        {day: 'Wednesday', shifts: []},
+        {day: 'Monday', shifts: []},
+        {day: 'Monday', shifts: []},
+      ],
+    };
+
+    const shifts = [];
+
+    for (let i = 0; i < shuffledEngineers.length; i += 2) {
+      const shiftEngineers = [
+        shuffledEngineers[i].id,
+        shuffledEngineers[i + 1].id,
+      ];
+      shifts.push(shiftEngineers);
+      console.log({shifts});
+    }
+    for (let i = 0; i < shifts.length; i += 1) {
+      week.days[i].shifts = shifts[i];
+    }
+
+    try {
+      const jsonValue = JSON.stringify([...calendar, week]);
+      await AsyncStorage.setItem('calendar', jsonValue);
+    } catch (e) {}
+  };
+  const loadCalendar = async () => {
+    try {
+      let jsonValue = await AsyncStorage.getItem('calendar');
+
+      if (jsonValue !== null) {
+        setCalendar(JSON.parse(jsonValue));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    loadCalendar();
+  }, []);
   return (
     <View style={styles.content}>
       <Pressable
         onPress={() => {
-          const newEngineers = [...Engineers.name];
-          shuffle(newEngineers);
+          generateCalendar();
         }}
         style={styles.container}>
         <Text style={styles.text}>SPIN</Text>

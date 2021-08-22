@@ -11,7 +11,6 @@ const HeaderContent = ({headerName, screen, navigation, data, setData}) => {
         onPress={() => {
           navigation.navigate(screen, {
             data: data,
-            setData: setData,
           });
         }}>
         <Icon name="plus" color={COLORS.TextYellow} style={styles.icon} />

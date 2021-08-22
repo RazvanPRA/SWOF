@@ -11,10 +11,14 @@ const Tab = createMaterialBottomTabNavigator();
 const AppTabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        style: {
-          backgroundColor: COLORS.NormalButtom,
-        },
+      // tabBarOptions={{
+      //   style: {
+      //     backgroundColor: COLORS.NormalButtom,
+      //   },
+      // }}
+      // tabBarColor={COLORS.NormalButtom}
+      barStyle={{
+        backgroundColor: COLORS.NormalButtom,
       }}>
       <Tab.Screen
         name="Calendar"
@@ -23,14 +27,27 @@ const AppTabs = () => {
           title: 'Calendar',
           tabBarIcon: () => (
             <MaterialCommunityIcons
-              name="home"
+              name="calendar"
               color={COLORS.TextGrey}
               size={26}
             />
           ),
         }}
       />
-      <Tab.Screen name="AllEngineersScreen" component={AllEngineersScreen} />
+      <Tab.Screen
+        name="Engineers"
+        options={{
+          title: 'Engineers',
+          tabBarIcon: () => (
+            <MaterialCommunityIcons
+              name="face-profile"
+              color={COLORS.TextGrey}
+              size={26}
+            />
+          ),
+        }}
+        component={AllEngineersScreen}
+      />
     </Tab.Navigator>
   );
 };

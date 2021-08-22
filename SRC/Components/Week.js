@@ -3,23 +3,16 @@ import {StyleSheet, Text, View} from 'react-native';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import IconO from 'react-native-vector-icons/Octicons';
 import {COLORS} from '../Const/COLORS';
+import {Engineers} from '../Const/Engineers';
 
-const Week = ({
-  index,
-  week,
-  dailySupport,
-  storeCalendar,
-  setWeeksSupport,
-  weeksSupport,
-}) => {
-  const deleteWeek = () => {
-    const newWeeksSupport = [...weeksSupport];
-    newWeeksSupport.splice(newWeeksSupport.indexOf(weeksSupport[index]), 1);
-    storeCalendar(newWeeksSupport);
-    setWeeksSupport(newWeeksSupport);
-  };
+const Week = ({week}) => {
+  // const deleteWeek = () => {
+  //   const newWeeksSupport = [...weeksSupport];
+  //   newWeeksSupport.splice(newWeeksSupport.indexOf(weeksSupport[index]), 1);
+  //   storeCalendar(newWeeksSupport);
+
+  // };
   const [showWeek, setShowWeek] = useState(false);
-  console.log({weeksSupport});
   return (
     <View style={styles.content}>
       <View style={styles.container}>
@@ -33,11 +26,11 @@ const Week = ({
             setShowWeek(!showWeek);
           }}
           style={styles.textButtom}>
-          {week}
+          Week {'  '} {week.week}
         </Text>
         <IconFA
           onPress={() => {
-            deleteWeek();
+            // deleteWeek();
           }}
           name="trash-o"
           color={COLORS.RedButtom}
@@ -45,9 +38,9 @@ const Week = ({
         />
       </View>
       {showWeek &&
-        dailySupport.map((item) => {
+        week.days.map((item, index) => {
           return (
-            <View>
+            <View key={index}>
               <Text style={styles.textWeek}>{item.day}:</Text>
               <Text style={styles.textEngineerSupp}>
                 Morning{'  '}
@@ -57,7 +50,11 @@ const Week = ({
                   style={styles.iconArrow}
                 />
                 {'  '}
-                {item.morning}
+                {
+                  Engineers.find((eng) => {
+                    return eng.id === item.shifts[0];
+                  }).name
+                }
               </Text>
               <Text style={styles.textEngineerSupp}>
                 Afternoon{'  '}
@@ -67,7 +64,11 @@ const Week = ({
                   style={styles.iconArrow}
                 />
                 {'  '}
-                {item.afternoon}
+                {
+                  Engineers.find((eng) => {
+                    return eng.id === item.shifts[1];
+                  }).name
+                }
               </Text>
             </View>
           );

@@ -19,7 +19,7 @@ const AppTabs = () => {
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons
               name="home"
-              color={COLORS.TextYellow}
+              color={COLORS.TextGrey}
               size={26}
             />
           ),

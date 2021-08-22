@@ -6,7 +6,7 @@ import {COLORS} from '../Const/COLORS';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {WeekSupport} from '../Const/WeekSupport';
 
-const Calendar = () => {
+const Calendar = ({navigation}) => {
   const [weeksSupport, setWeeksSupport] = useState(WeekSupport);
   const storeCalendar = async (value) => {
     try {
@@ -24,10 +24,17 @@ const Calendar = () => {
 
   return (
     <ScrollView style={styles.content}>
-      <HeaderContent headerName={'Calendar'} />
+      <HeaderContent
+        navigation={navigation}
+        screen={'SWOF'}
+        headerName={'Calendar'}
+        data={weeksSupport}
+        setData={setWeeksSupport}
+      />
       <ContentCalendar
         weeksSupport={weeksSupport}
         storeCalendar={storeCalendar}
+        setWeeksSupport={setWeeksSupport}
       />
     </ScrollView>
   );

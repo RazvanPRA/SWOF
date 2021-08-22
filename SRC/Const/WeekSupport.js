@@ -1,5 +1,6 @@
 export const WeekSupport = [
   {
+    id: 100,
     week: 'week ' + 1,
     dailySupport: [
       {day: 'Monday', morning: 'Razvan', afternoon: 'Andrei'},
@@ -14,6 +15,7 @@ export const WeekSupport = [
     ],
   },
   {
+    id: 101,
     week: 'week ' + 2,
     dailySupport: [
       {day: 'Monday', morning: 'Razvan', afternoon: 'Laura'},
@@ -24,6 +26,7 @@ export const WeekSupport = [
     ],
   },
   {
+    id: 102,
     week: 'week ' + 3,
     dailySupport: [
       {day: 'Monday', morning: 'Raluca', afternoon: 'Andrei'},

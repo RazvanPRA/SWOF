@@ -3,23 +3,23 @@ import {StyleSheet, Text, View} from 'react-native';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import IconO from 'react-native-vector-icons/Octicons';
 import {COLORS} from '../Const/COLORS';
-import {Calendar} from '../Const/WeekSupport';
 
 const Week = ({
+  index,
   week,
   dailySupport,
   storeCalendar,
-  weekSupport,
-  index,
   setWeeksSupport,
+  weeksSupport,
 }) => {
   const deleteWeek = () => {
-    const newWeekSupport = [...weekSupport];
-    newWeekSupport.splice(weekSupport[index - 1], 1);
-    storeCalendar(newWeekSupport);
-    setWeeksSupport(newWeekSupport);
+    const newWeeksSupport = [...weeksSupport];
+    newWeeksSupport.splice(newWeeksSupport.indexOf(weeksSupport[index]), 1);
+    storeCalendar(newWeeksSupport);
+    setWeeksSupport(newWeeksSupport);
   };
   const [showWeek, setShowWeek] = useState(false);
+  console.log({weeksSupport});
   return (
     <View style={styles.content}>
       <View style={styles.container}>

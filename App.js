@@ -6,6 +6,7 @@ import AppTabs from './SRC/Screens/AppTabs';
 import EngineerScreen from './SRC/Screens/EngineerScreen';
 import SpinScreen from './SRC/Screens/SpinScreen';
 import {COLORS} from './SRC/Const/COLORS';
+import EngineerProfile from './SRC/Screens/EngineerProfile';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,22 @@ const App: () => React$Node = () => {
           }}
         />
         <Stack.Screen name="EngineerScreen" component={EngineerScreen} />
+        <Stack.Screen
+          name="Engineer Profile"
+          component={EngineerProfile}
+          options={{
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontSize: 36,
+              fontWeight: 'bold',
+              color: COLORS.TextYellow,
+            },
+            headerStyle: {
+              backgroundColor: COLORS.Background,
+              elevation: 0,
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -5,18 +5,24 @@ import IconO from 'react-native-vector-icons/Octicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import {COLORS} from '../Const/COLORS';
 
-const ContentEngineers = () => {
+const ContentEngineers = ({navigation}) => {
   return (
     <View style={styles.content}>
       {Engineers.map((item) => {
         return (
-          <View style={styles.container}>
+          <View key={item.id} style={styles.container}>
             <IconO
               name="chevron-right"
               color={COLORS.BLACK}
               style={styles.iconChevron}
             />
-            <Text onPress={() => {}} style={styles.textButtom}>
+            <Text
+              onPress={() => {
+                navigation.navigate('Engineer Profile', {
+                  data: item,
+                });
+              }}
+              style={styles.textButtom}>
               {item.name}
             </Text>
             <IconFA

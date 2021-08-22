@@ -8,12 +8,13 @@ const ContentCalendar = ({weeksSupport, storeCalendar, setWeeksSupport}) => {
       {weeksSupport.map((item, index) => {
         return (
           <Week
+            index={index}
+            key={item.id}
             storeCalendar={storeCalendar}
             week={item.week}
             dailySupport={item.dailySupport}
-            weekSupport={weeksSupport}
-            index={index}
             setWeeksSupport={setWeeksSupport}
+            weeksSupport={weeksSupport}
           />
         );
       })}

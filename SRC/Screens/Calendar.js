@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import ContentCalendar from '../Components/ContentCalendar';
 import HeaderContent from '../Components/HeaderContent';
@@ -21,7 +21,7 @@ const Calendar = ({navigation}) => {
       return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {}
   };
-
+  useEffect(() => {}, []);
   return (
     <ScrollView style={styles.content}>
       <HeaderContent

@@ -10,13 +10,18 @@ import {COLORS} from '../Const/COLORS';
 const Tab = createMaterialBottomTabNavigator();
 const AppTabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        style: {
+          backgroundColor: COLORS.NormalButtom,
+        },
+      }}>
       <Tab.Screen
         name="Calendar"
         component={Calendar}
         options={{
           title: 'Calendar',
-          tabBarIcon: ({color}) => (
+          tabBarIcon: () => (
             <MaterialCommunityIcons
               name="home"
               color={COLORS.TextGrey}

@@ -12,7 +12,7 @@ const AllEngineersScreen = ({navigation}) => {
         screen={'EngineerScreen'}
         headerName={'Engineers'}
       />
-      <ContentEngineers />
+      <ContentEngineers navigation={navigation} />
     </ScrollView>
   );
 };

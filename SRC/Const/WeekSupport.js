@@ -1,4 +1,4 @@
-export const Calendar = [
+export const WeekSupport = [
   {
     week: 'week 1',
     dailySupport: [

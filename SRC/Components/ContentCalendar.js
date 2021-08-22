@@ -1,13 +1,20 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Week from './Week';
-import {Calendar} from '../Const/Calendar';
 
-const ContentCalendar = () => {
+const ContentCalendar = ({weeksSupport, storeCalendar}) => {
   return (
     <View style={styles.content}>
-      {Calendar.map((item) => {
-        return <Week week={item.week} dailySupport={item.dailySupport} />;
+      {weeksSupport.map((item, index) => {
+        return (
+          <Week
+            storeCalendar={storeCalendar}
+            week={item.week}
+            dailySupport={item.dailySupport}
+            calendar={weeksSupport}
+            index={index}
+          />
+        );
       })}
     </View>
   );

@@ -3,8 +3,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import IconFA from 'react-native-vector-icons/FontAwesome';
 import IconO from 'react-native-vector-icons/Octicons';
 import {COLORS} from '../Const/COLORS';
+import {Calendar} from '../Const/WeekSupport';
 
-const Week = ({week, dailySupport}) => {
+const Week = ({week, dailySupport, storeCalendar, calendar, index}) => {
+  const deleteWeek = (index) => {
+    const newCalendar = [...calendar];
+    newCalendar.splice(calendar.index, 1);
+  };
   const [showWeek, setShowWeek] = useState(false);
   return (
     <View style={styles.content}>
@@ -22,6 +27,9 @@ const Week = ({week, dailySupport}) => {
           {week}
         </Text>
         <IconFA
+          onPress={() => {
+            deleteWeek();
+          }}
           name="trash-o"
           color={COLORS.RedButtom}
           style={styles.iconTrash}

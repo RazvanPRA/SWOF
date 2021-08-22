@@ -4,10 +4,14 @@ import ContentEngineers from '../Components/ContentEngineers';
 import HeaderContent from '../Components/HeaderContent';
 import {COLORS} from '../Const/COLORS';
 
-const AllEngineersScreen = () => {
+const AllEngineersScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.content}>
-      <HeaderContent headerName={'Engineers'} />
+      <HeaderContent
+        navigation={navigation}
+        screen={'EngineerScreen'}
+        headerName={'Engineers'}
+      />
       <ContentEngineers />
     </ScrollView>
   );

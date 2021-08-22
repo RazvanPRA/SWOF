@@ -1,13 +1,21 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import {COLORS} from '../Const/COLORS';
 
-const HeaderContent = ({headerName}) => {
+const HeaderContent = ({headerName, screen, navigation, data, setData}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{headerName}</Text>
-      <Icon name="plus" color={COLORS.TextYellow} style={styles.icon} />
+      <Pressable
+        onPress={() => {
+          navigation.navigate(screen, {
+            data: data,
+            setData: setData,
+          });
+        }}>
+        <Icon name="plus" color={COLORS.TextYellow} style={styles.icon} />
+      </Pressable>
     </View>
   );
 };

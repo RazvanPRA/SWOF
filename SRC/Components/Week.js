@@ -5,10 +5,19 @@ import IconO from 'react-native-vector-icons/Octicons';
 import {COLORS} from '../Const/COLORS';
 import {Calendar} from '../Const/WeekSupport';
 
-const Week = ({week, dailySupport, storeCalendar, calendar, index}) => {
-  const deleteWeek = (index) => {
-    const newCalendar = [...calendar];
-    newCalendar.splice(calendar.index, 1);
+const Week = ({
+  week,
+  dailySupport,
+  storeCalendar,
+  weekSupport,
+  index,
+  setWeeksSupport,
+}) => {
+  const deleteWeek = () => {
+    const newWeekSupport = [...weekSupport];
+    newWeekSupport.splice(weekSupport[index - 1], 1);
+    storeCalendar(newWeekSupport);
+    setWeeksSupport(newWeekSupport);
   };
   const [showWeek, setShowWeek] = useState(false);
   return (

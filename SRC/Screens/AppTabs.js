@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import Calendar from './Calendar';
 import AllEngineersScreen from './AllEngineersScreen';
 import {COLORS} from '../Const/COLORS';
@@ -11,14 +10,8 @@ const Tab = createMaterialBottomTabNavigator();
 const AppTabs = () => {
   return (
     <Tab.Navigator
-      // tabBarOptions={{
-      //   style: {
-      //     backgroundColor: COLORS.NormalButtom,
-      //   },
-      // }}
-      // tabBarColor={COLORS.NormalButtom}
       barStyle={{
-        backgroundColor: COLORS.NormalButtom,
+        backgroundColor: COLORS.normalButton,
       }}>
       <Tab.Screen
         name="Calendar"
@@ -28,7 +21,7 @@ const AppTabs = () => {
           tabBarIcon: () => (
             <MaterialCommunityIcons
               name="calendar"
-              color={COLORS.TextGrey}
+              color={COLORS.textGrey}
               size={26}
             />
           ),
@@ -41,7 +34,7 @@ const AppTabs = () => {
           tabBarIcon: () => (
             <MaterialCommunityIcons
               name="face-profile"
-              color={COLORS.TextGrey}
+              color={COLORS.textGrey}
               size={26}
             />
           ),

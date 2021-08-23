@@ -16,11 +16,6 @@ const EngineerProfile = ({route}) => {
           <Text style={styles.text}>{data.gender}</Text>
           <Text style={styles.text}>{data.age}</Text>
         </View>
-        <Text style={styles.textWorking}>Working schedule:</Text>
-        <View style={styles.viewWeek}>
-          <Text style={styles.textWorking}>Week 1 - Monday - Evening</Text>
-          <Text style={styles.textWorking}>Week 2 - Friday - Morning</Text>
-        </View>
       </View>
     </ScrollView>
   );
@@ -29,36 +24,36 @@ const EngineerProfile = ({route}) => {
 export default EngineerProfile;
 
 const styles = StyleSheet.create({
-  content: {flex: 1, backgroundColor: COLORS.Background},
+  content: {flex: 1, backgroundColor: COLORS.background},
   contentScrollView: {alignItems: 'center', paddingTop: 44},
   contentText: {
     flexDirection: 'row',
   },
   text: {
     fontSize: 36,
-    backgroundColor: COLORS.NormalButtom,
+    backgroundColor: COLORS.normalButton,
     margin: 30,
     textAlign: 'center',
-    width: 120,
-    height: 65,
-    color: COLORS.TextYellow,
+    minWidth: 120,
+    minHeight: 65,
+    color: COLORS.textYellow,
     fontWeight: 'bold',
     paddingTop: 6,
   },
   textName: {
     fontSize: 36,
-    backgroundColor: COLORS.NormalButtom,
+    backgroundColor: COLORS.normalButton,
     margin: 30,
     textAlign: 'center',
-    width: 300,
-    height: 65,
-    color: COLORS.TextYellow,
+    minWidth: 300,
+    minHeight: 65,
+    color: COLORS.textYellow,
     fontWeight: 'bold',
     paddingTop: 6,
   },
   textWorking: {
     fontSize: 18,
-    color: COLORS.BLACK,
+    color: COLORS.black,
   },
   viewWeek: {
     paddingLeft: 20,

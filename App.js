@@ -3,7 +3,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import AppTabs from './SRC/Screens/AppTabs';
-import EngineerScreen from './SRC/Screens/EngineerScreen';
 import SpinScreen from './SRC/Screens/SpinScreen';
 import {COLORS} from './SRC/Const/COLORS';
 import EngineerProfile from './SRC/Screens/EngineerProfile';
@@ -29,15 +28,14 @@ const App: () => React$Node = () => {
             headerTitleStyle: {
               fontSize: 36,
               fontWeight: 'bold',
-              color: COLORS.TextYellow,
+              color: COLORS.textYellow,
             },
             headerStyle: {
-              backgroundColor: COLORS.Background,
+              backgroundColor: COLORS.background,
               elevation: 0,
             },
           }}
         />
-        <Stack.Screen name="EngineerScreen" component={EngineerScreen} />
         <Stack.Screen
           name="Engineer Profile"
           component={EngineerProfile}
@@ -46,10 +44,10 @@ const App: () => React$Node = () => {
             headerTitleStyle: {
               fontSize: 36,
               fontWeight: 'bold',
-              color: COLORS.TextYellow,
+              color: COLORS.textYellow,
             },
             headerStyle: {
-              backgroundColor: COLORS.Background,
+              backgroundColor: COLORS.background,
               elevation: 0,
             },
           }}

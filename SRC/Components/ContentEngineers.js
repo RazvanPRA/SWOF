@@ -11,11 +11,6 @@ const ContentEngineers = ({navigation}) => {
       {Engineers.map((item) => {
         return (
           <View key={item.id} style={styles.container}>
-            <IconO
-              name="chevron-right"
-              color={COLORS.BLACK}
-              style={styles.iconChevron}
-            />
             <Text
               onPress={() => {
                 navigation.navigate('Engineer Profile', {
@@ -25,10 +20,15 @@ const ContentEngineers = ({navigation}) => {
               style={styles.textButtom}>
               {item.name}
             </Text>
-            <IconFA
-              name="trash-o"
-              color={COLORS.RedButtom}
-              style={styles.iconTrash}
+            <IconO
+              name="chevron-right"
+              color={COLORS.black}
+              style={styles.iconChevron}
+              onPress={() => {
+                navigation.navigate('Engineer Profile', {
+                  data: item,
+                });
+              }}
             />
           </View>
         );
@@ -45,27 +45,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.NormalButtom,
+    backgroundColor: COLORS.normalButton,
     marginBottom: 30,
     marginHorizontal: 10,
     borderRadius: 10,
   },
   iconChevron: {
     fontSize: 40,
-    paddingLeft: 15,
+    paddingRight: 15,
   },
   textButtom: {
     flex: 1,
-    textAlign: 'center',
+    paddingLeft: 10,
     alignSelf: 'center',
     fontSize: 36,
     fontWeight: 'bold',
-    color: COLORS.TextGrey,
+    color: COLORS.textGrey,
     paddingVertical: 10,
-  },
-  iconTrash: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    paddingRight: 15,
   },
 });

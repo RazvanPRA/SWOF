@@ -1,17 +1,14 @@
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, ScrollView, View, Text} from 'react-native';
 import ContentEngineers from '../Components/ContentEngineers';
-import HeaderContent from '../Components/HeaderContent';
 import {COLORS} from '../Const/COLORS';
 
 const AllEngineersScreen = ({navigation}) => {
   return (
     <ScrollView style={styles.content}>
-      <HeaderContent
-        navigation={navigation}
-        screen={'EngineerScreen'}
-        headerName={'Engineers'}
-      />
+      <View>
+        <Text style={styles.text}>EngineerScreen</Text>
+      </View>
       <ContentEngineers navigation={navigation} />
     </ScrollView>
   );
@@ -20,5 +17,14 @@ const AllEngineersScreen = ({navigation}) => {
 export default AllEngineersScreen;
 
 const styles = StyleSheet.create({
-  content: {backgroundColor: COLORS.Background},
+  content: {backgroundColor: COLORS.background},
+  text: {
+    flex: 1,
+    textAlign: 'center',
+    alignSelf: 'center',
+    paddingLeft: 50,
+    fontSize: 36,
+    color: COLORS.textYellow,
+    fontWeight: 'bold',
+  },
 });

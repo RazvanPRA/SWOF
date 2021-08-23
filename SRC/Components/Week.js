@@ -6,35 +6,24 @@ import {COLORS} from '../Const/COLORS';
 import {Engineers} from '../Const/Engineers';
 
 const Week = ({week}) => {
-  // const deleteWeek = () => {
-  //   const newWeeksSupport = [...weeksSupport];
-  //   newWeeksSupport.splice(newWeeksSupport.indexOf(weeksSupport[index]), 1);
-  //   storeCalendar(newWeeksSupport);
-
-  // };
   const [showWeek, setShowWeek] = useState(false);
   return (
     <View style={styles.content}>
       <View style={styles.container}>
-        <IconO
-          name="chevron-down"
-          color={COLORS.BLACK}
-          style={styles.iconChevron}
-        />
         <Text
           onPress={() => {
             setShowWeek(!showWeek);
           }}
           style={styles.textButtom}>
-          Week {'  '} {week.week}
+          Week {week.week}
         </Text>
-        <IconFA
+        <IconO
+          name="chevron-down"
+          color={COLORS.black}
+          style={styles.iconChevron}
           onPress={() => {
-            // deleteWeek();
+            setShowWeek(!showWeek);
           }}
-          name="trash-o"
-          color={COLORS.RedButtom}
-          style={styles.iconTrash}
         />
       </View>
       {showWeek &&
@@ -43,13 +32,12 @@ const Week = ({week}) => {
             <View key={index}>
               <Text style={styles.textWeek}>{item.day}:</Text>
               <Text style={styles.textEngineerSupp}>
-                Morning{'  '}
+                Morning{' '}
                 <IconO
                   name="arrow-small-right"
-                  color={COLORS.TextGrey}
+                  color={COLORS.textGrey}
                   style={styles.iconArrow}
-                />
-                {'  '}
+                />{' '}
                 {
                   Engineers.find((eng) => {
                     return eng.id === item.shifts[0];
@@ -60,10 +48,9 @@ const Week = ({week}) => {
                 Afternoon{'  '}
                 <IconO
                   name="arrow-small-right"
-                  color={COLORS.TextGrey}
+                  color={COLORS.textGrey}
                   style={styles.iconArrow}
-                />
-                {'  '}
+                />{' '}
                 {
                   Engineers.find((eng) => {
                     return eng.id === item.shifts[1];
@@ -87,14 +74,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: COLORS.NormalButtom,
+    backgroundColor: COLORS.normalButton,
 
     marginHorizontal: 10,
     borderRadius: 10,
   },
   iconChevron: {
     fontSize: 22,
-    paddingLeft: 15,
+    paddingRight: 15,
   },
   textButtom: {
     flex: 1,
@@ -102,22 +89,18 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 22,
     fontWeight: 'bold',
-    color: COLORS.TextYellow,
+    color: COLORS.textYellow,
     paddingVertical: 10,
-  },
-  iconTrash: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    paddingRight: 15,
+    paddingLeft: 25,
   },
   textWeek: {
     paddingLeft: 10,
-    color: COLORS.TextGrey,
+    color: COLORS.textGrey,
     fontSize: 18,
   },
   textEngineerSupp: {
     paddingLeft: 40,
-    color: COLORS.TextGrey,
+    color: COLORS.textGrey,
     fontSize: 18,
   },
   iconArrow: {

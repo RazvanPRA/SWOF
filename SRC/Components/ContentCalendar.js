@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Week from './Week';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useIsFocused} from '@react-navigation/native';
 
-const ContentCalendar = ({weeksSupport, storeCalendar, setWeeksSupport}) => {
+const ContentCalendar = () => {
   const [calendar, setCalendar] = useState([]);
+  const isFocused = useIsFocused();
   const loadCalendar = async () => {
     try {
       let jsonValue = await AsyncStorage.getItem('calendar');
@@ -18,12 +20,14 @@ const ContentCalendar = ({weeksSupport, storeCalendar, setWeeksSupport}) => {
   };
 
   useEffect(() => {
-    loadCalendar();
-  }, []);
+    if (isFocused) {
+      loadCalendar();
+    }
+  }, [isFocused]);
   console.log({calendar});
   return (
     <View style={styles.content}>
-      {calendar.map((item, index) => {
+      {calendar.map((item) => {
         return <Week week={item} key={item.id} />;
       })}
     </View>

@@ -3,18 +3,15 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import {COLORS} from '../Const/COLORS';
 
-const HeaderContent = ({headerName, screen, navigation, data, setData}) => {
+const HeaderContent = ({headerName, screen, navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{headerName}</Text>
       <Pressable
         onPress={() => {
-          navigation.navigate(screen, {
-            data: data,
-            setData: setData,
-          });
+          navigation.navigate(screen);
         }}>
-        <Icon name="plus" color={COLORS.TextYellow} style={styles.icon} />
+        <Icon name="plus" color={COLORS.textYellow} style={styles.icon} />
       </Pressable>
     </View>
   );
@@ -34,7 +31,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingLeft: 50,
     fontSize: 36,
-    color: COLORS.TextYellow,
+    color: COLORS.textYellow,
     fontWeight: 'bold',
   },
   icon: {
